@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ulang Tahun Intan Saravina ke-23</title>
+    <meta
+      name="description"
+      content="Website ulang tahun Intan Saravina ke-23 dengan video dan animasi hadiah."
+    >
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="birthday-page">
+      <section class="opening" aria-labelledby="birthday-title">
+        <div class="opening-copy">
+          <p class="eyebrow">Untuk hari yang cuma datang sekali setahun</p>
+          <h1 id="birthday-title">Selamat ulang tahun ke-23, Intan Saravina</h1>
+          <p class="lead">
+            Semoga tahun ini terasa lembut, penuh kabar baik, dan selalu punya alasan kecil
+            buat tersenyum.
+          </p>
+        </div>
+
+        <div class="video-shell" aria-label="Video ulang tahun">
+          <div class="video-heading">
+            <span class="watch-pill">
+              <span class="watch-mark" aria-hidden="true"></span>
+              Putar Video
+            </span>
+            <span class="watch-state" id="watchState">Hadiah terkunci sampai video selesai.</span>
+          </div>
+
+          <div class="video-wrap">
+            <video id="birthdayVideo" playsinline preload="metadata">
+              <source src="video_compressed.mp4" type="video/mp4">
+              Browser kamu belum mendukung pemutar video.
+            </video>
+            <button class="video-overlay-play" id="overlayPlay" type="button">
+              <span class="overlay-play-icon" aria-hidden="true"></span>
+              <span>Putar Video</span>
+            </button>
+          </div>
+
+          <div class="video-controls" aria-label="Kontrol video">
+            <button
+              class="control-button skip-button"
+              id="rewindButton"
+              type="button"
+              aria-label="Mundur 10 detik"
+              title="Mundur 10 detik"
+            >
+              <span class="skip-icon skip-back" aria-hidden="true"></span>
+              <span class="control-number">10</span>
+            </button>
+            <button
+              class="control-button play-button"
+              id="playToggle"
+              type="button"
+              aria-label="Putar video"
+              title="Putar video"
+            >
+              <span class="play-shape" aria-hidden="true"></span>
+              <span class="pause-shape" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <button
+              class="control-button skip-button"
+              id="forwardButton"
+              type="button"
+              aria-label="Maju 10 detik"
+              title="Maju 10 detik"
+            >
+              <span class="control-number">10</span>
+              <span class="skip-icon skip-forward" aria-hidden="true"></span>
+            </button>
+
+            <div class="video-progress">
+              <span class="time-readout" id="currentTime">0:00</span>
+              <input
+                id="videoSeek"
+                class="seek-slider"
+                type="range"
+                min="0"
+                max="100"
+                value="0"
+                step="0.1"
+                aria-label="Geser posisi video"
+              >
+              <span class="time-readout" id="durationTime">0:00</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gift-section" aria-labelledby="gift-title">
+        <h2 id="gift-title">Hadiah kecil sedang bersiap</h2>
+        <button class="gift-button is-locked" id="giftButton" type="button" aria-controls="giftStage" disabled>
+          <span class="gift-icon" aria-hidden="true">
+            <span></span>
+          </span>
+          <span class="button-label">Cek hadiah</span>
+        </button>
+        <p class="gift-lock-note" id="giftLockNote">Tonton videonya sampai selesai dulu, baru hadiahnya kebuka.</p>
+
+        <div class="gift-stage" id="giftStage" aria-live="polite">
+          <div class="stage-glow" aria-hidden="true"></div>
+          <div class="snag-post" aria-hidden="true">
+            <span class="post-cap"></span>
+            <span class="post-thread"></span>
+          </div>
+
+          <div class="pull-rig" id="pullRig" aria-hidden="true">
+            <div class="bird-team">
+              <span class="paper-bird bird-one">
+                <span class="bird-body"></span>
+                <span class="bird-wing"></span>
+                <span class="bird-tail"></span>
+              </span>
+              <span class="paper-bird bird-two">
+                <span class="bird-body"></span>
+                <span class="bird-wing"></span>
+                <span class="bird-tail"></span>
+              </span>
+              <span class="paper-bird bird-three">
+                <span class="bird-body"></span>
+                <span class="bird-wing"></span>
+                <span class="bird-tail"></span>
+              </span>
+            </div>
+
+            <span class="pull-cord"></span>
+
+            <figure class="photo-card" id="photoCard">
+              <div class="photo-pin" aria-hidden="true"></div>
+              <img id="giftPhoto" alt="Foto hadiah untuk Intan Saravina">
+              <figcaption>Hadiah buat Intan</figcaption>
+              <div class="photo-placeholder" id="photoPlaceholder">
+                <strong>tf.jpg</strong>
+                <span>Taruh fotonya di folder ini, nanti muncul di sini.</span>
+              </div>
+            </figure>
+          </div>
+
+          <p class="stage-status" id="stageStatus">Hadiah masih dikunci sampai videonya selesai.</p>
+        </div>
+
+        <audio id="drumAudio" preload="auto">
+          <source src="drum.mp3" type="audio/mpeg">
+        </audio>
+      </section>
+
+      <section class="music-section" aria-labelledby="music-title">
+        <div class="music-intro">
+          <p class="eyebrow">Hadiah musik kecil</p>
+          <h2 id="music-title">Enam lagu buat menemani hari Intan</h2>
+        </div>
+
+        <div class="music-player" id="musicPlayer">
+          <div class="music-now">
+            <div class="music-art" aria-hidden="true">
+              <span class="disc-ring"></span>
+              <span class="disc-center"></span>
+            </div>
+            <div class="music-copy">
+              <span class="music-kicker" id="musicKicker">Lagu 1 dari 6</span>
+              <strong id="musicTitle">Hari Ini Milikmu</strong>
+              <span id="musicStatus">Siap diputar</span>
+            </div>
+          </div>
+
+          <div class="music-controls" aria-label="Kontrol musik">
+            <button
+              class="music-nav-button"
+              id="musicPrev"
+              type="button"
+              aria-label="Lagu sebelumnya"
+              title="Lagu sebelumnya"
+            >
+              <span class="music-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button
+              class="music-play-button"
+              id="musicPlay"
+              type="button"
+              aria-label="Putar musik"
+              title="Putar musik"
+            >
+              <span class="play-shape" aria-hidden="true"></span>
+              <span class="pause-shape" aria-hidden="true">
+                <span></span>
+                <span></span>
+              </span>
+            </button>
+            <button
+              class="music-nav-button"
+              id="musicNext"
+              type="button"
+              aria-label="Lagu berikutnya"
+              title="Lagu berikutnya"
+            >
+              <span class="music-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
+
+          <div class="music-progress">
+            <span class="time-readout" id="musicCurrent">0:00</span>
+            <input
+              id="musicSeek"
+              class="seek-slider music-seek"
+              type="range"
+              min="0"
+              max="100"
+              value="0"
+              step="0.1"
+              aria-label="Geser posisi musik"
+            >
+            <span class="time-readout" id="musicDuration">0:00</span>
+          </div>
+
+          <div class="music-list" aria-label="Daftar lagu">
+            <button class="track-button is-active" type="button" data-track="0">
+              <span>01</span>
+              <strong>Hari Ini Milikmu</strong>
+            </button>
+            <button class="track-button" type="button" data-track="1">
+              <span>02</span>
+              <strong>Bintang Baru</strong>
+            </button>
+            <button class="track-button" type="button" data-track="2">
+              <span>03</span>
+              <strong>Hari Baru</strong>
+            </button>
+            <button class="track-button" type="button" data-track="3">
+              <span>04</span>
+              <strong>Langkah ke China</strong>
+            </button>
+            <button class="track-button" type="button" data-track="4">
+              <span>05</span>
+              <strong>Jalan Pulang Merdeka</strong>
+            </button>
+            <button class="track-button" type="button" data-track="5">
+              <span>06</span>
+              <strong>Rumah Kecilmu</strong>
+            </button>
+          </div>
+
+          <audio id="musicAudio" preload="metadata" src="music1.mp3"></audio>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
